@@ -1,46 +1,60 @@
-import "./App.css";
-import { TwitterFollowCard } from "./TwitterFollowCard";
+import './App.css'
+import { TwitterFollowCard } from './components/TwitterFollowCard'
 
 const users = [
-	{
-		userName: "midudev",
-		personName: "Miguel Angel Duran",
-		isFollowing: true
-	},
-	{
-		userName: "pheralb",
-		personName: "Pablo Hernandez",
-		isFollowing: false
-	},
-	{
-		userName: "Vanderhart",
-		isFollowing: true
-	}
-];
+  {
+    userName: 'johnwickcutz',
+    personName: 'John Wick',
+    isFollowing: true
+  },
+  {
+    userName: 'themandalorian',
+    personName: 'Din Djarin',
+    isFollowing: true
+  },
+  {
+    userName: 'bo_katan_kryze',
+    personName: 'Bo-Katan Kryze',
+    isFollowing: false
+  },
+  {
+    userName: 'grogu',
+    personName: 'Din Grogu',
+    isFollowing: true
+  }
+]
 
 export function App() {
-	//const midudev = { initialIsFollowing: true, userName: "midudev" };
+  /* 
+	ej. passing all object properties together, this is 
+	not very good practise
+	
+	const grogu = { 
+		isFollowing: true, 
+		userName: 'grogu', 
+		personName: 'Din Grogu'
+	} 
+	
+	<TwitterFollowCard {...grogu}>
+	*/
 
-	return (
-		<div className="App">
-			{users.map(user => (
-				<TwitterFollowCard
-					key={user.userName}
-					initialIsFollowing={user.isFollowing}
-					userName={user.userName}
-				>
-					{user.personName}
-				</TwitterFollowCard>
-			))}
-			{/*
-
-			<TwitterFollowCard {...midudev}>Miguel Angel Duran</TwitterFollowCard>
-			<TwitterFollowCard initialIsFollowing={false} userName="pheralb">
-				Pablo Hernandez
-			</TwitterFollowCard>
-			<TwitterFollowCard initialIsFollowing>Vanderhart</TwitterFollowCard>
-			
-			*/}
-		</div>
-	);
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <h3>Who to follow</h3>
+      </header>
+      {users.map(user => (
+        <TwitterFollowCard
+          key={user.userName}
+          initialIsFollowing={user.isFollowing}
+          userName={user.userName}
+        >
+          {user.personName}
+        </TwitterFollowCard>
+      ))}
+      <footer className='App-footer'>
+        <a href=''>Show more</a>
+      </footer>
+    </div>
+  )
 }
