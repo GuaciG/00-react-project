@@ -8,7 +8,7 @@ const users = [
     isFollowing: true
   },
   {
-    userName: 'themandalorian',
+    userName: 'the_mandalorian_',
     personName: 'Din Djarin',
     isFollowing: true
   },
